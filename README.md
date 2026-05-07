@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-    <img src="{{ asset('') }}" width="800">
+    <img src="https://github.com/HariisDermawan/sipekaujikom/blob/main/public/img/dashboard.png" width="800">
 </p>
 
 <p align="center">
@@ -66,13 +66,14 @@ Sistem akan:
 ## Clone Repository
 
 ```bash id="q5n2rm"
-git clone https://github.com/username/project-penggajian.git
+git clone https://github.com/HariisDermawan/sipekaujikom.git
+
 ```
 
 ## Masuk Folder Project
 
 ```bash id="z8v1xp"
-cd project-penggajian
+cd sipekaujikom
 ```
 
 ## Install Dependency
