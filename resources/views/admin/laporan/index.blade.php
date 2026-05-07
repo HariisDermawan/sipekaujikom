@@ -11,7 +11,6 @@
         </h3>
 
     </div>
-
     <div class="overflow-x-auto">
 
         <table class="w-full text-sm text-left border-collapse">
