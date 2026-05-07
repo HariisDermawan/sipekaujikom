@@ -1,0 +1,59 @@
+@extends('layouts.app')
+
+@section('content')
+    <div class="p-4 bg-white border rounded-xl">
+
+        <h3 class="mb-4 font-bold text-gray-800">
+            Tambah Karyawan
+        </h3>
+        @if ($errors->any())
+            <div class="p-3 mb-4 text-red-100 bg-red-500 rounded">
+                <ul class="pl-5 text-sm list-disc">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        <form action="{{ route('karyawan.update', $karyawan->id_karyawan) }}" method="POST" class="space-y-4">
+            @csrf
+            @method('PUT')
+            <div>
+                <label class="block mb-1 text-sm">NIK</label>
+                <input type="text" name="nik" value="{{ old('nik', $karyawan->nik) }}"
+                    class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            </div>
+
+            <div>
+                <label class="block mb-1 text-sm">Nama</label>
+                <input type="text" name="nama_karyawan" value="{{ old('nama_karyawan', $karyawan->nama_karyawan) }}" class="w-full px-3 py-2 border rounded-lg">
+            </div>
+
+            <div>
+                <label class="block mb-1 text-sm">Jabatan</label>
+                <select name="id_jabatan" class="w-full px-3 py-2 border rounded-lg">
+                     @foreach($jabatans as $j)
+                    <option value="{{ $j->id_jabatan }}"
+                        {{ $karyawan->id_jabatan == $j->id_jabatan ? 'selected' : '' }}>
+                        {{ $j->nama_jabatan }}
+                    </option>
+                @endforeach
+                </select>
+            </div>
+
+            <div>
+                <label class="block mb-1 text-sm">Tanggal Masuk</label>
+                <input type="date" value="{{ old('tgl_masuk', $karyawan->tgl_masuk) }}" name="tgl_masuk" class="w-full px-3 py-2 border rounded-lg">
+            </div>
+
+            <button class="px-4 py-2 text-white bg-blue-600 rounded-lg">
+                Simpan
+            </button>
+            <a href="{{ route('karyawan.index') }}" class="px-4 py-2 text-white bg-gray-600 rounded-lg">
+                Batal
+            </a>
+
+        </form>
+
+    </div>
+@endsection
